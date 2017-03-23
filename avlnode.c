@@ -111,15 +111,7 @@ static avltree left_left_rotation(avltree tree) {
 	return k2;
 }
 
-/*RR旋转
-                          k1                                                       k3
-                        /    \                                                    /    \
-                      k2     k3                                               k1     k5
-                            /     \              -------->                 /   \       \
-                           k4     k5                                      k2     k4     k6
-                                      \
-                                       k6
-*/
+
 static avltree right_right_rotation(avltree tree) {
 	avlnode *k3=tree->right;
 	tree->right=k3->left;
@@ -280,7 +272,7 @@ avltree  avltree_deleNode(avltree tree,elementType key) {
 		}
 	}
 	if(tree)
-		tree->height=MAX(getNode_height(tree->left),getNode_height(tree->right))+1;
+	{tree->height=MAX(getNode_height(tree->left),getNode_height(tree->right))+1;}
 	return tree;
 }
 
