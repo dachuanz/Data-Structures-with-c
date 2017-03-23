@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-
+#include <stdlib.h>//使用GCC 5.4 测试
 #define LENGTH(a) ((sizeof(a))/(sizeof(a[0])))
 
 
