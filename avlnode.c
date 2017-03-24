@@ -60,9 +60,9 @@ avlnode *create_node(elementType key,avlnode *left,avlnode *right) {
 
 avlnode *  maximun_node(avltree tree) {
 	if(tree==NULL)
-		return NULL;
+	{return NULL;}
 	while(tree->right)
-		tree=tree->right;
+	{tree=tree->right;}
 	return tree;
 }
 
@@ -74,7 +74,9 @@ avlnode *minimun_node(avltree tree) {
 
 	return tree;
 }
-
+/**
+先序遍历
+*/
 void pre_order_avltree(avltree tree) {
 	if(tree) {
 		printf("%d\n",tree->key);
@@ -257,7 +259,9 @@ avltree  avltree_deleNode(avltree tree,elementType key) {
 		}
 	}
 	if(tree)
-	{tree->height=MAX(getNode_height(tree->left),getNode_height(tree->right))+1;}
+	{
+		tree->height=MAX(getNode_height(tree->left),getNode_height(tree->right))+1;
+		}
 	return tree;
 }
 
