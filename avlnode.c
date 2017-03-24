@@ -6,7 +6,19 @@
 
 #define HEIGHT(node) ((node==NULL) ? 0 :(((avlnode *)(node))->height))
 #define MAX(a,b) ((a)>(b)?(a):(b))
+
+/**
+
+
+AVL树 C语言实现
+
+*/
+
+
 typedef int elementType;
+
+
+
 typedef struct node {
 	elementType key;
 	struct node *left;
