@@ -34,6 +34,12 @@ void post_order_avltree(avltree tree);//后序遍历
 void print_avltree(avltree tree, elementType key, int direction);//打印树的信息
 
 avlnode *search_node(avltree tree,elementType key);//根据key 的值搜索结点
+
+
+
+
+
+
 int getNode_height(avlnode *node) {
 	return HEIGHT(node);
 }
@@ -97,10 +103,7 @@ void post_order_avltree(avltree tree) {
 
 	}
 }
-/*LL旋转
-                             
-                      
-*/
+
 static avltree left_left_rotation(avltree tree) {
 	avlnode *k2=tree->left;
 	tree->left=k2->right;
@@ -121,34 +124,13 @@ static avltree right_right_rotation(avltree tree) {
 	return k3;
 }
 
-/*LR旋转
-                          k1                                                 k1                                                k5
-                        /     \                                             /    \                                             /    \
-                      k2      k3                                       k5     k3                                         k2     k1
-                    /    \           -------->                      /    \           --------->                       /      /   \
-                 k4      k5                                        k2      k6                                          k4      k6   k3
-                            \                                         /
-                             k6                                     k4
-      1.对k2作RR旋转
-      2.对k1作LL旋转
-*/
+
 static avltree left_right_rotation(avltree tree) {
 	tree->left=right_right_rotation(tree->left);
 	tree=left_left_rotation(tree);
 	return tree;
 }
 
-/*RL旋转
-                                  k1                                          k1                                              k4
-                                /    \                                       /    \                                           /     \
-                              k2     k3                                 k2      k4                                      k1     k3
-                                     /    \    ---------->                    /   \    ---------->               /    \       \
-                                    k4    k5                                  k6    k3                              k2     k6     k5
-                                    /                                                      \
-                                  k6                                                       k5
-            1.对k3作LL旋转
-            2.对k1作RR旋转
-*/
 static avltree right_left_rotation(avltree tree) {
 	tree->right=left_left_rotation(tree->right);
 	tree=right_right_rotation(tree);
@@ -220,7 +202,10 @@ void print_avltree(avltree tree, elementType key, int direction) {
 		print_avltree(tree->right,tree->key,  1);
 	}
 }
+/*
 
+返回指向 avl树的指针
+*/
 avlnode *search_node(avltree tree,elementType key) {
 	if(tree==NULL||tree->key==key) {
 		return tree;
