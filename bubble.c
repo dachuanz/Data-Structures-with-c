@@ -31,6 +31,8 @@ void bubble(int *a,int n) /*定义两个参数：数组首地址与数组大小*/
 
 
 选择排序
+
+定义两个参数：数组首地址与数组大小*
 */
 
 void choice(int *a,int n)
@@ -62,7 +64,7 @@ void choice(int *a,int n)
 }
 /**
 
-快速排序 
+快速排序
 */
 
 void quick(int *a,int i,int j)
@@ -112,10 +114,37 @@ void quick(int *a,int i,int j)
 }
 
 
+
+void insert(int *a,int n)
+
+{
+
+	int i,j,temp;
+
+	for(i=1; i<n; i++) {
+
+		temp=a[i]; /*temp为要插入的元素*/
+
+		j=i-1;
+
+		while(j>=0&&temp<a[j]) { /*从a[i-1]开始找比a[i]小的数，同时把数组元素向后移*/
+
+			a[j+1]=a[j];
+
+			j--;
+
+		}
+
+		a[j+1]=temp; /*插入*/
+
+	}
+
+}
+
 int main() {
 
-	int e []  = {9,2,3,4,5,88,};
-	quick(e,0,5);
+	int e []  = {10,3,2,4,5,88,};
+	insert(e,6);
 	int i;
 	for( i=0; i<6; i++)
 
